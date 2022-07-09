@@ -20,3 +20,11 @@ console.log(addToCollection('Poison Tree', 'Grouper', 2008));
 console.log(addToCollection('Alien Observer', 'Grouper', 2011));
 
 console.log(collection);
+
+function showCollection(array) {
+    console.log(array.length);
+    for(song of array) {
+        console.log(song.title + ' by ' + song.artist + ', published ' + song.yearPublished);
+    }
+}
+showCollection(collection); //--> 6

@@ -3,13 +3,13 @@ console.log('***** Music Collection *****')
 let collection = [];
 
 function addToCollection(title, artist, yearPublished) {
-    let record = {
+    let album = {
         title: title,
         artist: artist,
         yearPublished: yearPublished
     };
-    collection.push(record);
-    return record;
+    collection.push(album);
+    return album;
 }
 
 console.log(addToCollection('Love Scene', 'Kiabits', 2022));
@@ -38,7 +38,32 @@ function findByArtist(searchedArtist) {
         } 
     }
     return artistArray;
-}
+};
 console.log(findByArtist('Meg Myers'));
 console.log(findByArtist('Grouper'));
-console.log(findByArtist('Doja Cat'));
+console.log(findByArtist('Doja Cat')); //--> []
+
+console.log('--------Search function below--------')
+
+function search(artist, year) {
+    let searchComplete = [];
+    for(album of collection) {
+        if(artist === album.artist && year === album.yearPublished) {
+            searchComplete.push(album);  
+        } else if(artist === undefined || year === undefined) {
+            return collection;
+        }
+    }
+    return searchComplete;
+};
+console.log(search('Grouper', 2008));
+console.log(search('Meg Myers', 2018));
+console.log(search('Rien', 2022));
+console.log(search('Trippie Redd', 2021)); //--> []
+console.log(search()); //--> Returns entire collection
+console.log(search(2022)); //--> Also returns entire collection
+console.log(search('7&Nine')); //--> Also returns entire collection
+
+console.log('--------Tracks array stuff below--------')
+
+addToCollection.tracks = [];
